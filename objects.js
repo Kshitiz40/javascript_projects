@@ -49,10 +49,57 @@ const dc_heros = ['superman','flash','batman']
 // console.log(Array.from("Kshitiz"))
 // console.log(Array.from({name: "Kshitiz"}))//tell whether key or values are converted in array
 
-let score1 = 100
-let score2 = 200
-let score3 = 300
-let score4 = [400,500]
+// let score1 = 100
+// let score2 = 200
+// let score3 = 300
+// let score4 = [400,500]
 
-console.log(Array.of(score1,score2,score3,score4))
-console.log(Array.from(score1))//cannot pass elements and returns empty array
+// console.log(Array.of(score1,score2,score3,score4))
+// console.log(Array.from(score1))//cannot pass elements and returns empty array
+
+//objects - created by constuctor or literals
+//singleton - when made from constructor
+// using constructor : Object.create
+
+const mySym = Symbol("key1")
+
+const jsUser = {
+    name: "Kshitiz",
+    age: 20,
+    location: "Delhi",
+    email: "kshitiz@gmail.com",
+    isLoggedIn: false,
+    lastLoginDays: ['Monday','Saturday'],
+    "string": "someString",
+    "full string": "some other string",
+    [mySym]: "myKey1"
+}
+//console.log(jsUser.email)//access using dot
+// console.log(jsUser['email'])//access like string
+// //normal key value pairs can be accessed in any way but not string ones
+
+// console.log(jsUser.string)
+// console.log(jsUser["full string"])
+// console.log(typeof jsUser[mySym])
+// 
+
+// jsUser.email = "Kshitiz21@gmail.com"
+// console.log(jsUser.email)
+// Object.freeze(jsUser)//no error but do not change
+// jsUser.email = "21@gmail.com"
+// console.log(jsUser)
+
+jsUser.greeting = function(){
+    console.log("hello js user");
+}
+console.log(jsUser.greeting)//function anonymous output as only function reference comes and not function executed
+console.log(jsUser.greeting())
+
+jsUser.greeting2 = function(){
+    console.log(`Hello JS user, ${this.name}, you are ${this.age} years old`)
+}
+
+console.log(jsUser.greeting2())
+
+//undefined comes due to one execution by itself and also comes in browser
+
